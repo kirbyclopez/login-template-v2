@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -12,6 +11,7 @@ module.exports = {
       lg: '1200px',
       xl: '1536px',
     },
+    extend: {},
   },
   plugins: [],
 };
