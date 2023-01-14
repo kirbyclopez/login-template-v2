@@ -2,7 +2,12 @@ import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import { NextPageWithLayout } from './page';
 
 const Home: NextPageWithLayout = () => {
-  return <div className="bg-slate-500 text-3xl font-bold underline">Home</div>;
+  return (
+    <div>
+      <h1>This is the landing page.</h1>
+      <button>Logout</button>
+    </div>
+  );
 };
 
 export default Home;
