@@ -14,11 +14,9 @@ const LoginForm: React.FC<ILoginForm> = () => {
 
     const credentials = { username, password };
 
-    const res = await axios.post(
-      'http://localhost:5000/api/auth/login',
-      credentials,
-      { withCredentials: true }
-    );
+    await axios.post('http://localhost:5000/api/auth/login', credentials, {
+      withCredentials: true,
+    });
 
     Router.push('/');
   };
@@ -28,27 +26,29 @@ const LoginForm: React.FC<ILoginForm> = () => {
       <h1 className="font-bold text-center text-2xl mb-5">Login Template</h1>
       <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
         <div className="px-5 py-7">
-          <label className="font-semibold text-sm text-gray-600 pb-1 block">
-            Username
-          </label>
-          <InputBox
-            value={username}
-            onChange={(e) => setUsername(e.currentTarget.value)}
-          />
-          <label className="font-semibold text-sm text-gray-600 pb-1 block">
-            Password
-          </label>
-          <InputBox
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.currentTarget.value)}
-          />
-          <button
-            type="button"
-            className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-          >
-            <span className="inline-block mr-2">Login</span>
-          </button>
+          <form onSubmit={handleSubmit}>
+            <label className="font-semibold text-sm text-gray-600 pb-1 block">
+              Username
+            </label>
+            <InputBox
+              value={username}
+              onChange={(e) => setUsername(e.currentTarget.value)}
+            />
+            <label className="font-semibold text-sm text-gray-600 pb-1 block">
+              Password
+            </label>
+            <InputBox
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.currentTarget.value)}
+            />
+            <button
+              type="submit"
+              className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+            >
+              <span className="inline-block mr-2">Login</span>
+            </button>
+          </form>
         </div>
       </div>
     </div>
