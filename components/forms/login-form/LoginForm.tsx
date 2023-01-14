@@ -22,7 +22,7 @@ const LoginForm: React.FC<ILoginForm> = () => {
   };
 
   return (
-    <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
+    <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-sm mt-2 md:mt-40">
       <h1 className="font-bold text-center text-2xl mb-5">Login Template</h1>
       <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
         <div className="px-5 py-7">
