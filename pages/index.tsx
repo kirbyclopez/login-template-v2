@@ -1,28 +1,28 @@
-import axios from 'axios';
-import Router from 'next/router';
+import Head from 'next/head';
+import Header from '../components/layouts/header/Header';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
-import baseUrl from '../lib/baseUrl';
 import { NextPageWithLayout } from './page';
 
 const Home: NextPageWithLayout = () => {
-  const handleLogout = async () => {
-    await axios.delete(`${baseUrl}/api/auth/sessions`, {
-      withCredentials: true,
-    });
-
-    Router.push('/login');
-  };
-
   return (
-    <div>
-      <h1>This is the landing page.</h1>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+    <>
+      <Head>
+        <title>AppName | Dashboard</title>
+      </Head>
+      <div className="min-h-[300px] flex flex-col items-center justify-center">
+        <div className="text-xl">Welcome to AppName!</div>
+      </div>
+    </>
   );
 };
 
 export default Home;
 
 Home.getLayout = (page) => {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
+  return (
+    <PrimaryLayout>
+      <Header />
+      {page}
+    </PrimaryLayout>
+  );
 };
