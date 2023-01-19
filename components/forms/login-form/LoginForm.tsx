@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Router from 'next/router';
 import { useState } from 'react';
+import baseUrl from '../../../lib/baseUrl';
 import InputBox from '../input-box/InputBox';
 
 export interface ILoginForm {}
@@ -14,7 +15,7 @@ const LoginForm: React.FC<ILoginForm> = () => {
 
     const credentials = { username, password };
 
-    await axios.post('http://localhost:5000/api/auth/login', credentials, {
+    await axios.post(`${baseUrl}/api/auth/login`, credentials, {
       withCredentials: true,
     });
 
