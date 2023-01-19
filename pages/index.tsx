@@ -1,11 +1,12 @@
 import axios from 'axios';
 import Router from 'next/router';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
+import baseUrl from '../lib/baseUrl';
 import { NextPageWithLayout } from './page';
 
 const Home: NextPageWithLayout = () => {
   const handleLogout = async () => {
-    await axios.delete('http://localhost:5000/api/auth/sessions', {
+    await axios.delete(`${baseUrl}/api/auth/sessions`, {
       withCredentials: true,
     });
 
